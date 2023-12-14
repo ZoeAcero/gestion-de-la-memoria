@@ -43,4 +43,23 @@ int main() {
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
 
+    if (!CreateProcess(
+            nullptr,
+            const_cast<LPWSTR>(L"ChildProcess.exe"),
+            nullptr,
+            nullptr,
+            FALSE,
+            0,
+            nullptr,
+            nullptr,
+            &si,
+            &pi)) {
+        std::cerr << "Error en CreateProcess: " << GetLastError() << std::endl;
+        UnmapViewOfFile(pBuf);
+        CloseHandle(hMapFile);
+        return 1;
+    }
+
+    
+
 

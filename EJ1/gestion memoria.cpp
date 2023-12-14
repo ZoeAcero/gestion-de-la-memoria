@@ -39,4 +39,8 @@ int main() {
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
 
+    ZeroMemory(&si, sizeof(si));
+    si.cb = sizeof(si);
+    ZeroMemory(&pi, sizeof(pi));
+
 

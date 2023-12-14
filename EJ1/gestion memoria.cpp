@@ -62,6 +62,8 @@ int main() {
 
     WaitForSingleObject(pi.hProcess, INFINITE);
 
+    std::wcout << L"Proceso hijo - Memoria compartida: " << pBuf << std::endl;
+
     
 
 

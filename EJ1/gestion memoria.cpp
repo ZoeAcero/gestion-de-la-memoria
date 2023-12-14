@@ -19,3 +19,12 @@ int main() {
         std::cerr << "Error en CreateFileMapping: " << GetLastError() << std::endl;
         return 1;
     }
+
+
+    LPCTSTR pBuf = (LPTSTR)MapViewOfFile(
+            hMapFile,
+            FILE_MAP_ALL_ACCESS,
+            0,
+            0,
+            SIZE);
+    

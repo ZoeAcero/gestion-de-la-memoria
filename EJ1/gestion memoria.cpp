@@ -27,4 +27,11 @@ int main() {
             0,
             0,
             SIZE);
+
+    if (pBuf == NULL) {
+        std::cerr << "Error en MapViewOfFile: " << GetLastError() << std::endl;
+        CloseHandle(hMapFile);
+        return 1;
+    }
+
     

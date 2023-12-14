@@ -60,6 +60,8 @@ int main() {
         return 1;
     }
 
+    WaitForSingleObject(pi.hProcess, INFINITE);
+
     
 
 

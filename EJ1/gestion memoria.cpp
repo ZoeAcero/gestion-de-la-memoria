@@ -13,7 +13,7 @@ int main() {
             PAGE_READWRITE,
             0,
             SIZE,
-            L"MemoriaCompartida");
+            reinterpret_cast<LPCSTR>(L"MemoriaCompartida"));
 
     if (hMapFile == NULL) {
         std::cerr << "Error en CreateFileMapping: " << GetLastError() << std::endl;
@@ -45,7 +45,7 @@ int main() {
 
     if (!CreateProcess(
             nullptr,
-            const_cast<LPWSTR>(L"ChildProcess.exe"),
+            reinterpret_cast<LPSTR>(const_cast<LPWSTR>(L"ChildProcess.exe")),
             nullptr,
             nullptr,
             FALSE,
@@ -68,5 +68,9 @@ int main() {
     CloseHandle(pi.hThread);
     UnmapViewOfFile(pBuf);
     CloseHandle(hMapFile);
+
+
+    return 0;
+}
 
 

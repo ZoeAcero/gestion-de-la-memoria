@@ -34,4 +34,9 @@ int main() {
         return 1;
     }
 
-    
+    CopyMemory((PVOID)pBuf, L"Hola desde el proceso padre", sizeof(L"Hola desde el proceso padre"));
+
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+
+

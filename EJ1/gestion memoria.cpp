@@ -64,6 +64,9 @@ int main() {
 
     std::wcout << L"Proceso hijo - Memoria compartida: " << pBuf << std::endl;
 
-    
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+    UnmapViewOfFile(pBuf);
+    CloseHandle(hMapFile);
 
 

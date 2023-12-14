@@ -14,3 +14,8 @@ int main() {
             0,
             SIZE,
             L"MemoriaCompartida");
+
+    if (hMapFile == NULL) {
+        std::cerr << "Error en CreateFileMapping: " << GetLastError() << std::endl;
+        return 1;
+    }
